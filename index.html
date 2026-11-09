@@ -4,53 +4,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca do Bairro</title>
 
-    <script src="src.js"></script>
-    <script src="Aula_9_11/Aula_9_11.ex2.js"></script>
-    <script src="Aula_9_11/Aula_9_11.ex3.js"></script>
-    <script src="Aula_9_11/Aula_9_11.ex4.js"></script>
+    <title>Biblioteca do Bairro</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5ead8, #e8d5bd);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
+            background: #f5ead8;
             color: #493323;
         }
 
-        .container {
-            background-color: #fffaf2;
-            width: 100%;
-            max-width: 500px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(75, 48, 25, 0.15);
+        header {
+            background: #68452d;
+            color: white;
+            padding: 25px;
+            text-align: center;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 30px;
-            color: #68452d;
+        header h1 {
+            font-size: 34px;
             margin-bottom: 10px;
         }
 
-        .subtitulo {
+        nav {
+            background: #795333;
+            padding: 15px;
             text-align: center;
-            color: #96775c;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        nav a:hover {
+            color: #f0d6b5;
+        }
+
+        .apresentacao {
+            text-align: center;
+            padding: 65px 20px;
+            background: linear-gradient(135deg, #e8d5bd, #fffaf2);
+        }
+
+        .apresentacao h2 {
+            font-size: 32px;
+            color: #68452d;
+            margin-bottom: 15px;
+        }
+
+        .apresentacao p {
+            font-size: 17px;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        .botao {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #795333;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background: #543820;
+        }
+
+        section {
+            padding: 45px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #68452d;
             margin-bottom: 30px;
-            font-size: 14px;
+            font-size: 27px;
+        }
+
+        .cartoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .cartao {
+            background: #fffaf2;
+            padding: 25px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(75,48,25,0.10);
+        }
+
+        .cartao h3 {
+            color: #795333;
+            margin-bottom: 12px;
+        }
+
+        .cartao p {
+            line-height: 1.7;
+        }
+
+        .livros {
+            background: #fffaf2;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(75,48,25,0.10);
+            text-align: center;
+        }
+
+        .capa {
+            height: 190px;
+            background: #e8d5bd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .livros h3 {
+            color: #68452d;
+            margin-bottom: 8px;
+        }
+
+        .destaque {
+            background: #e8d5bd;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .destaque h2 {
+            color: #68452d;
+            margin-bottom: 15px;
+        }
+
+        .container-form {
+            background: #fffaf2;
+            max-width: 500px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(75,48,25,0.12);
         }
 
         form {
@@ -59,94 +175,81 @@
         }
 
         label {
-            font-weight: 600;
+            font-weight: bold;
             margin-bottom: 8px;
-            color: #60452f;
         }
 
         input {
             padding: 13px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             border: 1px solid #d8c3aa;
-            border-radius: 9px;
-            background-color: #fff;
+            border-radius: 8px;
             font-size: 15px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input:focus {
-            border-color: #946b45;
-            box-shadow: 0 0 6px rgba(148, 107, 69, 0.25);
         }
 
         button {
             padding: 14px;
-            background-color: #795333;
+            background: #795333;
             color: white;
             border: none;
-            border-radius: 9px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         button:hover {
-            background-color: #543820;
-            transform: translateY(-2px);
+            background: #543820;
         }
 
         .exercicios {
-            margin-top: 30px;
-            border-top: 1px solid #e3d3c0;
-            padding-top: 25px;
-        }
-
-        .exercicios h2 {
             text-align: center;
-            color: #68452d;
-            font-size: 20px;
-            margin-bottom: 18px;
         }
 
         .links {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 12px;
         }
 
         .links a {
+            background: #795333;
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
             text-decoration: none;
-            text-align: center;
-            background-color: #efe2d1;
-            color: #68452d;
-            padding: 13px;
-            border-radius: 9px;
-            font-weight: 600;
-            transition: 0.3s;
+            font-weight: bold;
         }
 
         .links a:hover {
-            background-color: #795333;
-            color: white;
-            transform: translateY(-3px);
+            background: #543820;
         }
 
         footer {
-            margin-top: 25px;
+            background: #68452d;
+            color: white;
             text-align: center;
-            font-size: 12px;
-            color: #96775c;
+            padding: 25px;
+            margin-top: 30px;
+            line-height: 1.8;
         }
 
-        @media (max-width: 450px) {
-            .container {
-                padding: 25px;
+        @media(max-width: 600px) {
+            header h1 {
+                font-size: 25px;
             }
 
-            h1 {
+            nav a {
+                margin: 4px;
+                font-size: 13px;
+            }
+
+            .apresentacao h2 {
                 font-size: 25px;
+            }
+
+            .container-form {
+                padding: 22px;
             }
         }
     </style>
@@ -154,49 +257,247 @@
 
 <body>
 
-    <div class="container">
+<header>
+    <h1>📚 Biblioteca do Bairro</h1>
+    <p>Um espaço de cultura, conhecimento e imaginação.</p>
+</header>
 
-        <h1>📚 Biblioteca do Bairro</h1>
-        <p class="subtitulo">
-            O conhecimento começa com uma inscrição!
-        </p>
+<nav>
+    <a href="#inicio">Início</a>
+    <a href="#horarios">Horários</a>
+    <a href="#livros">Livros</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contactos">Contactos</a>
+    <a href="#inscricao">Inscrição</a>
+</nav>
+
+<!-- INÍCIO -->
+
+<div class="apresentacao" id="inicio">
+    <h2>Bem-vindo à Biblioteca do Bairro!</h2>
+
+    <p>
+        A nossa biblioteca é um espaço dedicado à leitura,
+        aprendizagem e descoberta. Aqui podes encontrar
+        livros para todas as idades, estudar, pesquisar
+        e participar em atividades culturais.
+    </p>
+
+    <a href="#livros" class="botao">Descobre os nossos livros</a>
+</div>
+
+<!-- HORÁRIOS -->
+
+<section id="horarios">
+    <h2>🕒 Horários de Funcionamento</h2>
+
+    <div class="cartoes">
+
+        <div class="cartao">
+            <h3>Segunda a Sexta</h3>
+            <p>09:00 - 13:00</p>
+            <p>14:00 - 18:00</p>
+        </div>
+
+        <div class="cartao">
+            <h3>Sábado</h3>
+            <p>09:00 - 13:00</p>
+        </div>
+
+        <div class="cartao">
+            <h3>Domingo e Feriados</h3>
+            <p>Encerrado</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- LIVROS -->
+
+<section id="livros">
+    <h2>📖 Livros em Exposição</h2>
+
+    <div class="cartoes">
+
+        <div class="livros">
+            <div class="capa">📕</div>
+            <h3>Os Lusíadas</h3>
+            <p>Autor: Luís de Camões</p>
+            <p>Literatura clássica portuguesa.</p>
+        </div>
+
+        <div class="livros">
+            <div class="capa">📗</div>
+            <h3>Mensagem</h3>
+            <p>Autor: Fernando Pessoa</p>
+            <p>Uma obra marcante da poesia portuguesa.</p>
+        </div>
+
+        <div class="livros">
+            <div class="capa">📘</div>
+            <h3>O Principezinho</h3>
+            <p>Autor: Antoine de Saint-Exupéry</p>
+            <p>Uma história sobre amizade e imaginação.</p>
+        </div>
+
+        <div class="livros">
+            <div class="capa">📙</div>
+            <h3>Ensaio sobre a Cegueira</h3>
+            <p>Autor: José Saramago</p>
+            <p>Um romance de um escritor português.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- NOVIDADES -->
+
+<div class="destaque">
+    <h2>⭐ Novidades da Biblioteca</h2>
+    <p>
+        Visita-nos e descobre as novas obras disponíveis!
+        Temos sempre novas sugestões de leitura à tua espera.
+    </p>
+</div>
+
+<!-- SERVIÇOS -->
+
+<section id="servicos">
+    <h2>📚 Os Nossos Serviços</h2>
+
+    <div class="cartoes">
+
+        <div class="cartao">
+            <h3>📖 Empréstimo de Livros</h3>
+            <p>
+                Podes requisitar livros e levá-los para casa
+                durante o período de empréstimo.
+            </p>
+        </div>
+
+        <div class="cartao">
+            <h3>💻 Espaço de Estudo</h3>
+            <p>
+                Um local tranquilo para estudar,
+                ler e realizar trabalhos escolares.
+            </p>
+        </div>
+
+        <div class="cartao">
+            <h3>👨‍👩‍👧 Atividades</h3>
+            <p>
+                Organizamos atividades de leitura,
+                encontros literários e iniciativas culturais.
+            </p>
+        </div>
+
+        <div class="cartao">
+            <h3>📝 Inscrições</h3>
+            <p>
+                Torna-te membro da nossa biblioteca
+                e aproveita todos os nossos serviços.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACTOS -->
+
+<section id="contactos">
+    <h2>📍 Onde Estamos?</h2>
+
+    <div class="cartoes">
+
+        <div class="cartao">
+            <h3>Morada</h3>
+            <p>Rua Principal, nº 25</p>
+            <p>Lisboa, Portugal</p>
+        </div>
+
+        <div class="cartao">
+            <h3>Telefone</h3>
+            <p>210 000 000</p>
+        </div>
+
+        <div class="cartao">
+            <h3>Email</h3>
+            <p>biblioteca@exemplo.pt</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+
+<section id="inscricao">
+    <h2>📝 Inscreve-te na Biblioteca</h2>
+
+    <div class="container-form">
 
         <form action="/inscricao" method="post">
 
-            <label for="nome">Nome</label>
-            <input id="nome" name="nome" type="text"
-                   placeholder="Introduz o teu nome" required>
+            <label for="nome">Nome completo</label>
+            <input
+                id="nome"
+                name="nome"
+                type="text"
+                placeholder="Introduz o teu nome"
+                required
+            >
 
             <label for="email">Email</label>
-            <input id="email" name="email" type="email"
-                   placeholder="exemplo@email.com" required>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="exemplo@email.com"
+                required
+            >
 
             <label for="password">Password</label>
-            <input id="password" name="password" type="password"
-                   placeholder="Cria uma password" required>
+            <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Cria uma password"
+                required
+            >
 
             <button type="submit">Inscrever</button>
 
         </form>
 
-        <div class="exercicios">
+    </div>
+</section>
 
-            <h2>📖 Os meus exercícios</h2>
+<!-- EXERCÍCIOS -->
 
-            <div class="links">
-                <a href="Exercicios/Ex2.html">Exercício 2</a>
-                <a href="Exercicios/Ex3.html">Exercício 3</a>
-                <a href="Exercicios/Ex4.html">Exercício 4</a>
-                <a href="Exercicios/Aula_9_11.x5.html">Exercício 5</a> 
-            </div>
+<section class="exercicios">
+    <h2>💻 Os Meus Exercícios</h2>
 
-        </div>
+    <div class="links">
+
+        <a href="Exercicios/Ex2.html">Exercício 2</a>
+
+        <a href="Exercicios/Ex3.html">Exercício 3</a>
+
+        <a href="Exercicios/Ex4.html">Exercício 4</a>
+
+        <a href="Exercicios/Aula_9_11.x5.html">
+            Exercício 5
+        </a>
 
     </div>
+</section>
 
-    <footer>
-        © 2026 Biblioteca do Bairro | Todos os direitos reservados
-    </footer>
+<!-- RODAPÉ -->
+
+<footer>
+    <p>📚 Biblioteca do Bairro</p>
+    <p>© 2026 Biblioteca do Bairro | Todos os direitos reservados</p>
+    <p>O conhecimento começa com um livro! </p>
+</footer>
 
 </body>
-</html> 
+</html>
