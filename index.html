@@ -1,40 +1,202 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca do Bairro </title>
+    <title>Biblioteca do Bairro</title>
 
-    <script src="src.js"> </script>
-    <script src="Aula_9_11/Aula_9_11.ex2.js"> </script>
-    <script src="Aula_9_11/Aula_9_11.ex3.js"> </script>
-    <script src="Aula_9_11/Aula_9_11.ex4.js"> </script>
+    <script src="src.js"></script>
+    <script src="Aula_9_11/Aula_9_11.ex2.js"></script>
+    <script src="Aula_9_11/Aula_9_11.ex3.js"></script>
+    <script src="Aula_9_11/Aula_9_11.ex4.js"></script>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5ead8, #e8d5bd);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: #493323;
+        }
+
+        .container {
+            background-color: #fffaf2;
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(75, 48, 25, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            color: #68452d;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #96775c;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #60452f;
+        }
+
+        input {
+            padding: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #d8c3aa;
+            border-radius: 9px;
+            background-color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #946b45;
+            box-shadow: 0 0 6px rgba(148, 107, 69, 0.25);
+        }
+
+        button {
+            padding: 14px;
+            background-color: #795333;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #543820;
+            transform: translateY(-2px);
+        }
+
+        .exercicios {
+            margin-top: 30px;
+            border-top: 1px solid #e3d3c0;
+            padding-top: 25px;
+        }
+
+        .exercicios h2 {
+            text-align: center;
+            color: #68452d;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .links a {
+            text-decoration: none;
+            text-align: center;
+            background-color: #efe2d1;
+            color: #68452d;
+            padding: 13px;
+            border-radius: 9px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #795333;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #96775c;
+        }
+
+        @media (max-width: 450px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
 </head>
-<body>  
-    <h1> Biblioteca do Bairro  </h1>
-<form action="/inscricao" method="post">
-  <label for="nome">Nome</label>
-  <input id="nome" name="nome" type="text">
- 
-  <label for="email">Email</label>
-  <input id="email" name="email" type="email">
 
-  <label for="password">Password</label>
-  <input id="password" name="password" type="password">
- 
-  <button type="submit">Inscrever</button>
-</form>
+<body>
 
-<br>
+    <div class="container">
 
-<a href="Exercicios/Ex1.html">Exercício 1</a>
-<br>
-<a href="Exercicios/Ex2.html">Exercício 2</a>
-<br>
-<a href="Exercicios/Ex3.html">Exercício 3</a>
-<br>
-<a href="Exercicios/Ex4.html">Exercício 4</a>
+        <h1>📚 Biblioteca do Bairro</h1>
+        <p class="subtitulo">
+            O conhecimento começa com uma inscrição!
+        </p>
+
+        <form action="/inscricao" method="post">
+
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text"
+                   placeholder="Introduz o teu nome" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email"
+                   placeholder="exemplo@email.com" required>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"
+                   placeholder="Cria uma password" required>
+
+            <button type="submit">Inscrever</button>
+
+        </form>
+
+        <div class="exercicios">
+
+            <h2>📖 Os meus exercícios</h2>
+
+            <div class="links">
+                <a href="Exercicios/Ex1.html">Exercício 1</a>
+                <a href="Exercicios/Ex2.html">Exercício 2</a>
+                <a href="Exercicios/Ex3.html">Exercício 3</a>
+                <a href="Exercicios/Ex4.html">Exercício 4</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Biblioteca do Bairro | Todos os direitos reservados
+    </footer>
 
 </body>
-</html>
+</html> 
