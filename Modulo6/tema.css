@@ -1,0 +1,27 @@
+body.escuro {
+    background-color: #181818;
+    color: white;
+}
+
+body.escuro .biblioteca {
+    background-color: #292929;
+}
+
+body.escuro h1,
+body.escuro h2 {
+    color: white;
+}
+
+body.escuro li {
+    background-color: #383838;
+}
+
+body.escuro .informacoes {
+    background-color: #383838;
+}
+
+body.escuro input {
+    background-color: #383838;
+    color: white;
+    border: 1px solid #666;
+}

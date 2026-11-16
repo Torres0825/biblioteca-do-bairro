@@ -1,0 +1,39 @@
+
+[
+    {
+        "titulo": "Os Maias",
+        "autor": "Eça de Queirós",
+        "ano": 1888,
+        "disponivel": true
+    },
+    {
+        "titulo": "Mensagem",
+        "autor": "Fernando Pessoa",
+        "ano": 1934,
+        "disponivel": false
+    },
+    {
+        "titulo": "A Sibila",
+        "autor": "Agustina Bessa-Luís",
+        "ano": 1954,
+        "disponivel": true
+    },
+    {
+        "titulo": "O Ano da Morte de Ricardo Reis",
+        "autor": "José Saramago",
+        "ano": 1984,
+        "disponivel": true
+    },
+    {
+        "titulo": "O Mandarim",
+        "autor": "Eça de Queirós",
+        "ano": 1880,
+        "disponivel": false
+    },
+    {
+        "titulo": "O Primo Basílio",
+        "autor": "Eça de Queirós",
+        "ano": 1878,
+        "disponivel": true
+    }
+]
