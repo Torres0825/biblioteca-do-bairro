@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Os meus dados — Biblioteca com Memória</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="container">
+      <h1><a href="index.html">📚 Biblioteca com Memória</a></h1>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="dados.html">Os meus dados</a>
+      </nav>
+      <div class="preferencias">
+        <button id="botao-tema" type="button" aria-pressed="false" title="Alternar tema">
+          <span class="icon-claro">☀️</span>
+          <span class="icon-escuro">🌙</span>
+        </button>
+        <button id="seguir-sistema" type="button" title="Seguir o sistema">🖥️</button>
+        <div class="tamanho-letra">
+          <button id="letra-menor" type="button" title="Diminuir letra">A−</button>
+          <button id="letra-maior" type="button" title="Aumentar letra">A+</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="secao">
+      <h2>Os meus dados</h2>
+      <p>Tudo o que este site guardou neste browser (origem atual). Pode ver e apagar.</p>
+
+      <div id="lista-dados" class="lista-dados">
+        <!-- preenchido por JS -->
+      </div>
+
+      <div class="acoes-dados">
+        <button id="apagar-tudo" type="button" class="botao-perigo">Apagar todos os dados deste site</button>
+      </div>
+
+      <p class="nota">
+        Os dados ficam apenas neste browser e neste computador.
+        Limpar os dados do site ou usar uma janela privada remove-os.
+      </p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Projeto final do curso <strong>localStorage do Zero</strong>.</p>
+    </div>
+  </footer>
+
+  <script src="storage.js"></script>
+  <script src="dados.js"></script> 
+</body>
+</html>

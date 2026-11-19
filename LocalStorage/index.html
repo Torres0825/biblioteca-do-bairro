@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca com Memória</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Aviso por visita (sessionStorage) -->
+  <div id="faixa-aviso" class="faixa-aviso" hidden>
+    <p>Hoje a biblioteca fecha às 13h. Aproveite a leitura!</p>
+    <button id="fechar-faixa" type="button" aria-label="Fechar aviso">×</button>
+  </div>
+
+  <header class="cabecalho">
+    <div class="container">
+      <h1><a href="index.html">📚 Biblioteca com Memória</a></h1>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="dados.html">Os meus dados</a>
+      </nav>
+      <div class="preferencias">
+        <button id="botao-tema" type="button" aria-pressed="false" title="Alternar tema">
+          <span class="icon-claro">☀️</span>
+          <span class="icon-escuro">🌙</span>
+        </button>
+        <button id="seguir-sistema" type="button" title="Seguir o sistema">🖥️</button>
+        <div class="tamanho-letra">
+          <button id="letra-menor" type="button" title="Diminuir letra">A−</button>
+          <button id="letra-maior" type="button" title="Aumentar letra">A+</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <p id="contador-visitas" class="contador"></p>
+
+    <!-- Pesquisa no catálogo -->
+    <section class="secao">
+      <h2>Pesquisar no catálogo</h2>
+      <form id="form-pesquisa" class="form-pesquisa">
+        <input type="search" id="campo-pesquisa" placeholder="Título ou autor…" autocomplete="off" required>
+        <button type="submit">Pesquisar</button>
+      </form>
+      <div id="ultimas-pesquisas" class="ultimas-pesquisas" hidden>
+        <p>Últimas pesquisas:</p>
+        <ul id="lista-pesquisas"></ul>
+      </div>
+      <div id="resultados-pesquisa" class="resultados"></div>
+    </section>
+
+    <!-- Lista de leitura -->
+    <section class="secao">
+      <h2>A minha lista de leitura</h2>
+      <form id="form-leitura" class="form-inline">
+        <input type="text" id="campo-livro" placeholder="Título do livro" required>
+        <button type="submit">Adicionar</button>
+      </form>
+      <ul id="lista-leitura" class="lista-leitura"></ul>
+      <p id="lista-vazia" class="vazio">Ainda não tem livros na lista.</p>
+    </section>
+
+    <!-- Rascunho de sugestão -->
+    <section class="secao">
+      <h2>Sugerir um livro</h2>
+      <form id="form-sugestao">
+        <label for="texto-sugestao">Porquê este livro?</label>
+        <textarea id="texto-sugestao" rows="4" placeholder="Gostava que a biblioteca tivesse…"></textarea>
+        <p id="estado-rascunho" class="estado-rascunho" hidden>Rascunho guardado</p>
+        <button type="submit">Enviar sugestão</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Projeto final do curso <strong>localStorage do Zero</strong> — tudo fica neste browser.</p>
+    </div>
+  </footer>
+
+  <script src="storage.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
