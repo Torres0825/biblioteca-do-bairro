@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca do Bairro</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <header class="topo">
+    <div class="container topo-inner">
+      <div class="marca">
+        <span class="logo-icone" aria-hidden="true">📚</span>
+        <div>
+          <h1>Biblioteca do Bairro</h1>
+          <p class="subtitulo">Leitura, cultura e comunidade</p>
+        </div>
+      </div>
+
+      <div class="acoes-topo">
+        <button id="abrir-menu" class="btn-secundario" aria-expanded="false" aria-controls="menu-principal">
+          ☰ Menu
+        </button>
+        <button id="alternar-tema" class="btn-secundario" aria-label="Alternar modo escuro">
+          🌓 Tema
+        </button>
+      </div>
+    </div>
+
+    <nav id="menu-principal" class="container menu-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#destaque-secao" class="ativo">Em Destaque</a></li>
+        <li><a href="#catalogo-secao">Catálogo</a></li>
+        <li><a href="#leitura-secao">Lista de Leitura</a></li>
+        <li><a href="#eventos-secao">Eventos</a></li>
+        <li><a href="#clube-secao">Clube de Leitura</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container layout-principal">
+
+    <!-- LIVRO EM DESTAQUE -->
+    <section id="destaque-secao" class="cartao destaque-card">
+      <div class="badge-topo">Livro em Destaque</div>
+      <article id="destaque" class="destaque-grid" data-id="42" data-estado="emprestado" data-devolucao="2026-12-03">
+        <div class="capa-wrapper">
+          <img
+            class="capa"
+            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80"
+            alt=""
+          />
+        </div>
+        <div class="destaque-info">
+          <h3>Título provisório</h3>
+          <p class="autor-destaque">Fernando Pessoa · Edição Especial</p>
+          <p class="sinopse">
+            Uma das obras mais emblemáticas da literatura portuguesa do século XX, celebrando a história e o espírito das descobertas.
+          </p>
+          <p class="estado-texto"></p>
+          <div class="destaque-acoes">
+            <button class="reservar">Reservar</button>
+            <a class="mais btn-link" href="/catalogo">Ver mais do autor →</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- CATÁLOGO COM PESQUISA EM DIRETO -->
+    <section id="catalogo-secao" class="cartao">
+      <div class="secao-cabecalho">
+        <div>
+          <h2>Catálogo de Livros</h2>
+          <p id="estado-pesquisa" class="texto-suave" role="status">A carregar catálogo...</p>
+        </div>
+
+        <div class="pesquisa-box">
+          <label for="pesquisa" class="sr-only">Pesquisar livro ou autor</label>
+          <input
+            type="search"
+            id="pesquisa"
+            name="q"
+            placeholder="Pesquisar título ou autor (Esc limpa)..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <ul id="catalogo" class="grid-catalogo"></ul>
+
+      <template id="tpl-livro">
+        <li class="livro-card">
+          <div class="livro-topo">
+            <h3 class="titulo"></h3>
+            <span class="badge-emprestado" hidden>Emprestado</span>
+          </div>
+          <p class="autor"></p>
+          <button type="button" class="btn-adicionar-lista btn-secundario">
+            + Lista de leitura
+          </button>
+        </li>
+      </template>
+    </section>
+
+    <!-- COLUNA DUPLA: LISTA DE LEITURA + PROGRESSO -->
+    <div class="grid-duas-colunas">
+
+      <!-- LISTA DE LEITURA 2.0 -->
+      <section id="leitura-secao" class="cartao">
+        <div class="secao-cabecalho">
+          <div>
+            <h2>A Minha Lista de Leitura</h2>
+            <p id="contador-leitura" class="texto-suave">0 livros</p>
+          </div>
+          <button id="limpar-lista" class="btn-secundario btn-pequeno">Limpar tudo</button>
+        </div>
+
+        <div class="form-inline">
+          <label for="novo-livro" class="sr-only">Adicionar livro à lista</label>
+          <input type="text" id="novo-livro" placeholder="Escreve o título de um livro..." />
+          <button id="adicionar-livro" type="button">Adicionar</button>
+        </div>
+
+        <p class="dica-texto">Dica: clica no título para marcar como lido.</p>
+
+        <ul id="lista-leitura" class="lista-interativa">
+          <li>
+            <span class="item-titulo">Os Maias</span>
+            <div class="item-acoes">
+              <button type="button" data-acao="subir" aria-label="Subir livro">↑</button>
+              <button type="button" data-acao="descer" aria-label="Descer livro">↓</button>
+              <button type="button" data-acao="remover" aria-label="Remover livro">✕</button>
+            </div>
+          </li>
+          <li>
+            <span class="item-titulo">O Principezinho</span>
+            <div class="item-acoes">
+              <button type="button" data-acao="subir" aria-label="Subir livro">↑</button>
+              <button type="button" data-acao="descer" aria-label="Descer livro">↓</button>
+              <button type="button" data-acao="remover" aria-label="Remover livro">✕</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PROGRESSO DE LEITURA & EVENTOS -->
+      <div class="coluna-empilhada">
+        <section class="cartao">
+          <div class="secao-cabecalho">
+            <h2>Meta de Leitura Anual</h2>
+            <label class="seletor-cor-label">
+              Cor:
+              <input type="color" id="cor-destaque" value="#2563eb" aria-label="Escolher cor de destaque" />
+            </label>
+          </div>
+
+          <label for="progresso-range" class="label-bloco">
+            Progresso atual: <strong id="percentagem-texto">60% lido</strong>
+          </label>
+          <input type="range" id="progresso-range" min="0" max="100" value="60" />
+
+          <div class="barra-contentor">
+            <div class="progresso" style="width: 60%;"></div>
+          </div>
+        </section>
+
+        <section id="eventos-secao" class="cartao">
+          <h2>Próximos Eventos</h2>
+          <div class="lista-eventos">
+            <article class="evento">
+              <h3>Hora do conto</h3>
+              <p>Sábado, <strong>11h</strong> · Sala Infantil</p>
+            </article>
+            <article class="evento">
+              <h3>Clube de leitura</h3>
+              <p>Quarta-feira, <strong>18h30</strong> · Auditório</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+    </div>
+
+    <!-- COLUNA DUPLA: INSCRIÇÃO NO CLUBE + SUGESTÕES -->
+    <div class="grid-duas-colunas">
+
+      <!-- INSCRIÇÃO NO CLUBE -->
+      <section id="clube-secao" class="cartao">
+        <h2>Inscrição no Clube de Leitura</h2>
+        <p class="texto-suave">Junta-te aos nossos encontros mensais gratuitos.</p>
+
+        <form id="form-clube" class="formulario">
+          <div class="campo-grupo">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex: Ana Silva" required />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="ana@exemplo.pt" required />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="clube">Clube preferido</label>
+            <select id="clube" name="clube">
+              <option value="Policiais">Policiais e Mistério</option>
+              <option value="Clássicos">Clássicos Portugueses</option>
+              <option value="Ficção Científica">Ficção Científica</option>
+            </select>
+          </div>
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="regras" required />
+            Li e aceito as regras de funcionamento do clube
+          </label>
+
+          <button type="submit">Confirmar Inscrição</button>
+        </form>
+
+        <p id="resumo-inscricao" class="mensagem-sucesso" role="status"></p>
+      </section>
+
+      <!-- CAIXA DE SUGESTÕES -->
+      <section class="cartao">
+        <h2>Sugestões de Aquisição</h2>
+        <p class="texto-suave">Que livro gostarias de ver nas nossas estantes?</p>
+
+        <form id="form-sugestao" class="formulario">
+          <div class="campo-grupo">
+            <label for="texto-sugestao">A tua sugestão</label>
+            <textarea
+              id="texto-sugestao"
+              rows="5"
+              maxlength="200"
+              placeholder="Indica o título e o autor do livro que recomendas..."
+            ></textarea>
+            <div class="contador-linha">
+              <span id="contador-caracteres">0/200</span>
+            </div>
+          </div>
+          <button type="submit" class="btn-secundario">Enviar Sugestão</button>
+        </form>
+        <p id="feedback-sugestao" class="mensagem-sucesso" role="status"></p>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Biblioteca do Bairro · Aberto de Segunda a Sábado, das 09h30 às 19h30</p>
+    </div>
+  </footer>
+
+</body>
+</html>
